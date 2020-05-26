@@ -4,8 +4,11 @@
     <script>
         function a() {
             var x = document.getElementById('height').value;
+            x = Number(x);
             var y = document.getElementById('weight').value;
-            var z = x / y * y;
+            y = Number(y);
+            var z = y / x * x;
+            z = Number(z);
             document.getElementById('BMI').value = z;
 
         }
