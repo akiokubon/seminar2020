@@ -7,7 +7,7 @@
             x = Number(x);
             var y = document.getElementById('lostnum').value;
             y = Number(y);
-            var z = x / (x + y);
+            var z = x / (x + y) * 100;
             z = Number(z);
             document.getElementById("per").value = z;
         }
@@ -15,10 +15,10 @@
 </head>
 
 <body>
-    <input id="winnum" type="text">
-    <input id="lostnum" type="text">
-    <input id="per" type="text">
+    <p>勝数<input id="winnum" type="text"></p>
+    <p>負数<input id="lostnum" type="text"></p>
     <button onclick="a()">計算</button>
+    <p>勝率は<input id="per" type="text">%です。</p>
 </body>
 
 </html>
