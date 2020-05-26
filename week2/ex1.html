@@ -4,8 +4,11 @@
     <script>
         function a() {
             var x = document.getElementById('winnum').value;
+            x = Number(x);
             var y = document.getElementById('lostnum').value;
+            y = Number(y);
             var z = x / (x + y);
+            z = Number(z);
             document.getElementById("per").value = z;
         }
     </script>
