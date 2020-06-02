@@ -8,17 +8,17 @@
             for (var i = 1; i <= 20; i++) {
                 html = html + '<tr>';
                 html = html + '<td>' + i + '</td>';
-                if () {
-
+                if (i % 3 == 0 && i % 5 == 0) {
+                    html = html + '<td>' + "fizz buzz" + '</td>';
                 }
-                else if () {
-
+                else if (i % 3 == 0) {
+                    html = html + '<td>' + "fizz" + '</td>';
                 }
-                else if () {
-
+                else if (i % 5 == 0) {
+                    html = html + '<td>' + "buzz" + '</td>';
                 }
                 else {
-
+                    html = html + '<td>' + "" + '</td>';
                 }
                 html = html + '</tr>';
             }
