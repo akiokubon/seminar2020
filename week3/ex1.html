@@ -1,12 +1,23 @@
 <html lang="ja">
 
 <head>
+    <script>
+        function buttonAPressed() {
+            var html = document.getElementById('rand').value;
+            for (var i = 1; i <= 10; i++) {
+                var x = Math.floor(Math.random() * 7);
+                html = html + '<li>' + x + '</li>';
+                document.getElementById('rand').innerHTML = html;
+            }
+        }
+    </script>
+
     <meta charset="utf-8" />
 </head>
 
 <body>
     <h1>課題11-1</h1>
-    <button onclick="bottonAPressed()">乱数生成</button>
+    <button onclick="buttonAPressed()">乱数生成</button>
     <ul id="rand">
     </ul>
     <script src="index.js"></script>
