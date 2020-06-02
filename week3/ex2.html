@@ -2,18 +2,16 @@
 
 <head>
     <script>
-        function keisan{
-            var n = document.getElementById(num).value;
+        function keisan() {
+            var n = document.getElementById('num').value;
             n = Number(n);
-            var x = 0;
+            var x = 1;
             var html = "";
             for (var i = 1; i <= n; i++) {
-                for (var i2 = 1; i2 <= i) {
-                    x = x * i2
-                }
+                x = x * i;
                 html = html + '<li>' + x + '</li>';
-                document.getElementById(kaijo) = html;
             }
+            document.getElementById('kaijo').innerHTML = html;
         }
     </script>
     <meta charset="utf-8" />
@@ -23,10 +21,11 @@
     <h1>課題11-2</h1>
     <p>求める回数</p>
     <input id="num" type="text">
-    <button onclick="keisan">計算</button>
+    <button onclick="keisan()">計算</button>
     <ul id='kaijo'>
     </ul>
-    <script src="index.js"></script>
+
+
 </body>
 
 </html>
