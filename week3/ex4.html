@@ -1,0 +1,35 @@
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <script>
+        function buttonPressed() {
+            var html = '';
+            var x = 1;
+            html = html + '<table border="1">';
+            for (var i2 = 1; i2 <= 9; i2++) {//たて
+                html = html + '<tr>';
+                for (var i = 1; i <= 9; i++) {//よこ
+                    x = i2 * i;
+                    html = html + '<td>' + x + '</td>';
+                }
+                html = html + '</tr>';
+            }
+            html = html + '</table>';
+            document.getElementById('table').innerHTML = html;
+        }
+    </script>
+
+</head>
+
+<body>
+    <h1>課題11-4</h1>
+    <button onclick="buttonPressed()">計算</button>
+    <hr>
+
+    <div id="table">
+    </div>
+
+</body>
+
+</html>
