@@ -4,21 +4,29 @@
     <meta charset="utf-8" />
     <script>
         function buttonPressed() {
-            var base = document.getElementById('input-base');
-            var interest = document.getElementById('input-interest');
+            var base = document.getElementById('input-base').value;
+            base = Number(base);
+            var interest = document.getElementById('input-interest').value;
+            interest = Number(interest);
+            interest = interest / 100 + 1;
+            var x = base * interest;
+            x = Math.ceil(x);
             var html = "";
 
-            html = html + '<table>';
+            html = html + '<table>'
             html = html + '<tr>'
             html = html + '<td>年後</td>'
             html = html + '<td>元利合計</td>'
             html = html + '</tr>'
 
             for (var i = 1; i <= 10; i++) {
+
                 html = html + '<tr>'
                 html = html + '<td>' + i + '</td>'
                 html = html + '<td>' + x + '</td>'
                 html = html + '</tr>'
+                x = interest * x;
+                x = Math.ceil(x);
             }
 
             html = html + '</table>';
