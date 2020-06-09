@@ -7,16 +7,20 @@
             var base = document.getElementById('input-base');
             var interest = document.getElementById('input-interest');
             var html = "";
+
             html = html + '<table>';
             html = html + '<tr>'
             html = html + '<td>年後</td>'
             html = html + '<td>元利合計</td>'
             html = html + '</tr>'
+
             for (var i = 1; i <= 10; i++) {
                 html = html + '<tr>'
                 html = html + '<td>' + i + '</td>'
+                html = html + '<td>' + x + '</td>'
                 html = html + '</tr>'
             }
+
             html = html + '</table>';
 
             document.getElementById('table').innerHTML = html;
