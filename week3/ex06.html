@@ -8,12 +8,14 @@
         function buttonStartPressed() {
             var r = Math.floor(Math.random() * 20 + 1);
             r = Number(r);
-            html = "数字当てゲームを開始しました。いくつかな？";
+            html = "数字当てゲームを開始しました。いくつかな？" + r;
             document.getElementById("output-result").innerHTML = html;
+            return r;
         }
 
-        function buttonAnswerPressed() {
-            var a = document.getElementById("output-result").innerHTML;
+        function buttonAnswerPressed(r) {
+            var a = document.getElementById("input-number").innerHTML;
+            a = Number(a);
             if (a == r) {
                 html = "あたり！"
             }
@@ -23,7 +25,7 @@
             else {
                 html = "はずれ！それより小さいです"
             }
-            document.getElementById("input-number").innerHTML = html;
+            document.getElementById("output-result").innerHTML = html;
 
         }
 
