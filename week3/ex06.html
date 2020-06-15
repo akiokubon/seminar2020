@@ -1,0 +1,27 @@
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <script>
+        var html = "";
+        function buttonStartPressed() {
+            var r = Math.floor(Math.random() * 20 + 1);
+            html = r;
+            document.getElementById("output-result").innerHTML = html;
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1>課題11-A：数あてゲーム</h1>
+    <button onclick="buttonStartPressed()">Start</button><br>
+    回答:<input id="input-number" type="text">
+    <button onclick="buttonAnswerPressed()">回答</button>
+    <hr>
+    <p id="output-result">数あてゲームを開始するには, Startボタンを押してください</p>
+
+    </script>
+</body>
+
+</html>
