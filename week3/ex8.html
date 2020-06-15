@@ -5,11 +5,20 @@
     <script>
         function buttonPressed() {
             var input8 = document.getElementById("input-8").value;
+            input8 = Number(input8);
+            input8 = 8 * input8;
             var input4 = document.getElementById("input-4").value;
+            input4 = 4 * input4;
+            input4 = Number(input4);
             var input2 = document.getElementById("input-2").value;
+            input2 = 2 * input2;
+            input2 = Number(input2);
             var input1 = document.getElementById("input-1").value;
+            input1 = 1 * input1;
+            input1 = Number(input1);
+            var a = input8 + input4 + input2 + input1;
 
-            document.getElementById("output").value = 0
+            document.getElementById("output").value = a;
         }
 
     </script>
