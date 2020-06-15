@@ -6,11 +6,9 @@
         var html = "";
 
         function buttonStartPressed() {
-            var r = Math.floor(Math.random() * 20 + 1);
-            r = Number(r);
+            var r = Math.floor(Math.random() * 20) + 1;
             html = "数字当てゲームを開始しました。いくつかな？" + r;
             document.getElementById("output-result").innerHTML = html;
-            return r;
         }
 
         function buttonAnswerPressed(r) {
