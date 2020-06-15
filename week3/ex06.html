@@ -4,24 +4,26 @@
     <meta charset="utf-8" />
     <script>
         var html = "";
+        var r;
 
         function buttonStartPressed() {
-            var r = Math.floor(Math.random() * 20) + 1;
+            r = Math.floor(Math.random() * 20) + 1;
             html = "数字当てゲームを開始しました。いくつかな？" + r;
             document.getElementById("output-result").innerHTML = html;
+            return r;
         }
 
-        function buttonAnswerPressed(r) {
-            var a = document.getElementById("input-number").innerHTML;
+        function buttonAnswerPressed() {
+            var a = document.getElementById("input-number").value;
             a = Number(a);
             if (a == r) {
                 html = "あたり！"
             }
             else if (a < r) {
-                html = "はずれ！それより大きいです"
+                html = "はずれ！それより大きいです" + a
             }
             else {
-                html = "はずれ！それより小さいです"
+                html = "はずれ！それより小さいです" + a
             }
             document.getElementById("output-result").innerHTML = html;
 
