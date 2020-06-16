@@ -1,0 +1,27 @@
+<html lang="ja">
+
+<head>
+    f
+    <meta charset="utf-8" />
+    <script>
+        function buttonAPressed() {
+            var ctx = document.getElementById('canvas1').getContext('2d');
+            ctx.clearRect(0, 0, 400, 300);
+
+            ctx.strokeStyle = '#FF0000';
+            ctx.fillStyle = '#FF0000';
+
+            ctx.fillRect(40, 30, 10, 10);
+        }
+    </script>
+</head>
+
+<body>
+    X:<input id="input-x" type="text" value="0">Y:<input id="input-y" type="text" value="0">
+    <button onclick="buttonAPressed()">A</button>
+    <hr>
+    <canvas id="canvas1" width="400" height="300" style="border: solid 1px; background-color: black;"></canvas>
+
+</body>
+
+</html>
