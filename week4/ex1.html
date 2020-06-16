@@ -1,0 +1,37 @@
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <script>
+
+
+        function buttonAPressed() {
+            var rx = Math.floor(Math.random() * 400);
+            var ry = Math.floor(Math.random() * 300);
+            var ctx = document.getElementById('canvas1').getContext('2d');
+            ctx.strokeStyle = '#0000FF';
+            ctx.fillStyle = '#0000FF';
+
+            ctx.beginPath();
+            ctx.arc(rx, ry, 5, 0, Math.PI * 2);
+            ctx.stroke();
+
+
+        }
+        function buttonBPressed() {
+            ctx.clearRect(0, 0, 400, 300);
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="buttonAPressed()">A</button>
+    <button onclick="buttonBPressed()">B</button>
+
+    <hr>
+    <canvas id="canvas1" width="400" height="300" style="border : solid 1px;"></canvas>
+
+
+</body>
+
+</html>
