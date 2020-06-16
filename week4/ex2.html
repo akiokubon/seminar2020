@@ -8,10 +8,18 @@
             var ctx = document.getElementById('canvas1').getContext('2d');
             ctx.clearRect(0, 0, 400, 300);
 
-            ctx.strokeStyle = '#FF0000';
-            ctx.fillStyle = '#FF0000';
 
-            ctx.fillRect(40, 30, 10, 10);
+            ctx.fillStyle = '#FF0000';
+            ctx.fillStyle = '#FFFFFF';
+
+            for (var i = 0; i < 5; i++) {
+                for (var i2 = 0; i2 < 7; i2++) {
+                    ctx.fillRect(0 + (i2 * 10), 0 + (i * 10), 10, 10);
+                }
+            }
+
+
+
         }
     </script>
 </head>
