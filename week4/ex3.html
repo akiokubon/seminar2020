@@ -10,10 +10,14 @@
 
         function buttonAPressed() {
             var ctx = document.getElementById('canvas1').getContext('2d');
+            var a = document.getElementById("input-word").value;
 
-
-            ctx.drawImage(orange, 10, 10, 200, 100);
-            ctx.drawImage(apple, 20, 50, 200, 100);
+            if (a == "オレンジ") {
+                ctx.drawImage(orange, 10, 10, 200, 100);
+            }
+            else if (a == "アップル") {
+                ctx.drawImage(apple, 10, 10, 200, 100);
+            }
         }
 
     </script>
