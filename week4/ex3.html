@@ -10,6 +10,7 @@
 
         function buttonAPressed() {
             var ctx = document.getElementById('canvas1').getContext('2d');
+            ctx.clearRect(0, 0, 400, 300);
             var a = document.getElementById("input-word").value;
 
             if (a == "オレンジ") {
