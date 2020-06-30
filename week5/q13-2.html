@@ -3,15 +3,30 @@
 <head>
     <script>
         var timer;
-        var html = document.getElementById("sec").value;
+        var state = '停止中';
+        var h = 5;
 
         function buttonAPressed() {
-            timer = setInterval(tick, 1000);
+            if (state == '停止中') {
+                timer = setInterval(tick, 1000);
+                state = '動作中';
+            }
+            else if (state == '動作中') {
+                clearInterval(timer);
+                state = '停止中';
+            }
         }
 
         function tick() {
-            html = html - 1;
+            h = h - 1;
+            document.getElementById('sec').innerHTML = h;
 
+            if (h == 0) {
+                var ctx = document.getElementById('canvas1').getContext('2d');
+                ctx.font = "30px sans-serif";
+                ctx.fillText("時間です！", 20, 75, 200);
+                state = '停止中';
+            }
         }
 
 
@@ -19,7 +34,7 @@
 </head>
 
 <body>
-    <span id="sec">5</span>
+    <span id="sec" type='value'>5</span>
     <button onclick="buttonAPressed()">Start</button>
     <hr>
     <canvas id="canvas1" width="400" height="300" style="border: solid 1px;"></canvas>
