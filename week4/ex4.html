@@ -10,10 +10,15 @@
 
             ctx.strokeStyle = '#0000FF';
 
-            for (i = 0; i < a; i++) {
+            for (i = 1; i < a; i++) {
                 ctx.beginPath();
-                ctx.arc(20, 10 * (i + 1), 5, 0, Math.PI * 2);
+                ctx.arc(10, 10 * (i + 1), 5, 0, Math.PI * 2);
                 ctx.stroke();
+                for (i2 = 0; i2 < i; i2++) {
+                    ctx.beginPath();
+                    ctx.arc(10 * (i2 + 1), 10 * (i + 1), 5, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
             }
         }
     </script>
