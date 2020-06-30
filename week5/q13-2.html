@@ -3,18 +3,10 @@
 <head>
     <script>
         var timer;
-        var state = '停止中';
         var h = 5;
 
         function buttonAPressed() {
-            if (state == '停止中') {
-                timer = setInterval(tick, 1000);
-                state = '動作中';
-            }
-            else if (state == '動作中') {
-                clearInterval(timer);
-                state = '停止中';
-            }
+            timer = setInterval(tick, 1000);
         }
 
         function tick() {
@@ -25,7 +17,7 @@
                 var ctx = document.getElementById('canvas1').getContext('2d');
                 ctx.font = "30px sans-serif";
                 ctx.fillText("時間です！", 20, 75, 200);
-                state = '停止中';
+                clearInterval(timer);
             }
         }
 
