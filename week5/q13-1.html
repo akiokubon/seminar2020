@@ -1,10 +1,43 @@
 <html>
 
 <head>
+    <meta charset="utf-8" />
     <script>
+
+        var timer;
+        var state = '停止中';
+        var star = new Image();
+        star.src = 'star.png'
+
         function buttonAPressed() {
+            if (state == '停止中') {
+                timer = setInterval(tick, 1);
+                state = '動作中';
+            }
+            else if (state == '動作中') {
+                clearInterval(timer);
+                state = '停止中';
+            }
+
         }
 
+        var x = 10;
+        var y = 10;
+
+        function tick() {
+            var ctx = document.getElementById('canvas1').getContext('2d');
+            ctx.clearRect(0, 0, 400, 300);
+
+            x = x + 2;
+            y = y + 2;
+            if (x > 400) {
+                x = 0;
+            }
+            if (y > 300) {
+                y = 0;
+            }
+            ctx.drawImage(star, x, y, 50, 50);
+        }
 
     </script>
 </head>
