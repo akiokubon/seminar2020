@@ -1,0 +1,29 @@
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <script>
+        function buttonAPressed() {
+            var ctx = document.getElementById('canvas1').getContext('2d');
+            var a = document.getElementById('input-count').value;
+            ctx.clearRect(0, 0, 400, 300);
+
+            ctx.strokeStyle = '#0000FF';
+
+            for (i = 0; i < a; i++) {
+                ctx.beginPath();
+                ctx.arc(20, 10 * (i + 1), 5, 0, Math.PI * 2);
+                ctx.stroke();
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input id="input-count" type="text" value="">
+    <button onclick="buttonAPressed()">A</button>
+    <hr>
+    <canvas id="canvas1" width="400" height="300" style="border: solid 1px;"></canvas>
+</body>
+
+</html>
