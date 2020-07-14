@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(init);
+
+        function init() {//ログイン名表示
+            var userid = window.localStorage.getItem('userid');
+            document.getElementById('name').innerHTML = 'ようこそ' + userid + 'さん';
+        }
+
+        timer = setInterval(updatetwi, 10000);//更新
+        async function updatetwi() {//タイムライン表示
+            var userid = window.localStorage.getItem('userid');
+            var password = window.localStorage.getItem('password');
+
+            var sql = 'select * from Tweets order by time desc limit 20';
+            var query = {
+                db: 'crecodb',
+                userid: userid,
+                password: password,
+                sql: sql
+            };
+            var objects = await connect(query);
+            console.log(objects);
+            var html = '';
+            html = html + '<tr>' + '<th>' + '名前' + '</th>' + '<th>' + 'ツイート' + '</th>' + '<th>' + '時間' + '</th>' + '</tr>'
+            for (var i = 0; i < objects.length; i++) {
+                var object = objects[i];
+                html = html + '<tr>' + '<td>' + object.name + '</td>' + '<td>' + object.tweet + '</td>' + '<td>' + object.time + '</td>' + '</tr>';
+            }
+            document.getElementById('result').innerHTML = html;
+        }
+
+        async function button2Pressed() {//ツイート
+            var userid = window.localStorage.getItem('userid');
+            var password = window.localStorage.getItem('password');
+            var tweet = document.getElementById('tf3').value;
+
+            var sql = 'insert into Tweets (name, tweet, time) values("' + userid + '","' + tweet + '",now());';
+            var query = {
+                db: 'crecodb',
+                userid: userid,
+                password: password,
+                sql: sql
+            };
+            var objects = await connect(query);
+            console.log(objects);
+
+            var sql = 'select * from Tweets order by time desc limit 20';
+            var query = {
+                db: 'crecodb',
+                userid: userid,
+                password: password,
+                sql: sql
+            };
+
+            var objects = await connect(query);
+            console.log(objects);
+            var html = '';
+            html = html + '<tr>' + '<th>' + '名前' + '</th>' + '<th>' + 'ツイート' + '</th>' + '<th>' + '時間' + '</th>' + '</tr>'
+            for (var i = 0; i < objects.length; i++) {
+                var object = objects[i];
+                html = html + '<tr>' + '<td>' + object.name + '</td>' + '<td>' + object.tweet + '</td>' + '<td>' + object.time + '</td>' + '</tr>';
+            }
+            document.getElementById('result').innerHTML = html;
+        }
+
+        //この関数は変えないこと
+        function connect(query) {
+            return new Promise(function (resolve) {
+                $.post('http://dbkiso.si.aoyama.ac.jp/api/', query, function (data, textStatus) {
+                    var objects = JSON.parse(data);
+                    resolve(objects);
+                });
+            });
+        }
+    </script>
+
+</head>
+
+<body>
+    <h1>Tweets</h1>
+    <p id="name">xxxx</p>
+    <hr>
+
+    <input id="tf3" type="textfield">
+    <button onclick="button2Pressed()">tweet</button>
+    <hr>
+    <table border="1" id="result">
+
+
+    </table>
+</body>
+
+</html
